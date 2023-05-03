@@ -5,7 +5,7 @@ import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <div className="nav-container">
+    <div className="container">
       <div className="relative flex justify-between items-center">
         <Link to="/">
           <div className="flex gap-2 justify-center items-center">
