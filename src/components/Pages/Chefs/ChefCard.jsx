@@ -1,6 +1,7 @@
 import React from "react";
 import { AiFillLike } from 'react-icons/Ai';
 import LazyLoad from 'react-lazy-load';
+import { Link } from "react-router-dom";
 const ChefCard = ({chef}) => {
     const {id,image,chefName,yearsOfExperience,likes}=chef
   return (
@@ -24,7 +25,9 @@ const ChefCard = ({chef}) => {
                       <span>{likes}</span>
                   </div>
           <div className="card-actions">
-            <button className="btn btn-primary">View Recipes</button>
+          <Link to={`/chefRecipes/${id}`}>
+              <button className="btn btn-primary">View Recipes</button>
+            </Link>
           </div>
         </div>
       </div>
