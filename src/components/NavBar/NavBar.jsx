@@ -5,7 +5,7 @@ import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
-    <div className="container">
+    <div className="nav-container">
       <div className="relative flex justify-between items-center">
         <Link to="/">
           <div className="flex gap-2 justify-center items-center">
@@ -36,7 +36,7 @@ const NavBar = () => {
         </ul>
 
         <div className="md:flex">
-          <div className=" md:mr-10 mr-3 ml-auto">
+          <div className="">
             <Link to="/login">
               <button className="btn btn-primary bg-gradient-to-r from-blue-600 to-indigo-500 text-white">
                 Login

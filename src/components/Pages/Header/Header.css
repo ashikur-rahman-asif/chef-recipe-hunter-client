@@ -1,0 +1,8 @@
+.header-main{
+    background: url('../../../assets/main.jpeg');
+    /* position: relative; */
+    height: 70vh;
+    opacity: .9;
+    width: 100%
+    
+}
