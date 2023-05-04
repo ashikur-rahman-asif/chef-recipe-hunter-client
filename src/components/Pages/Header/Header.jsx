@@ -3,11 +3,7 @@ import "./Header.css";
 const Header = () => {
   return (
     <div
-      className="hero min-h-[70vh]"
-      style={{
-        backgroundImage: `url("/src/assets/main.jpg")`,
-      }}
-    >
+      className="hero header-image min-h-[70vh]">
       <div className="hero-overlay bg-opacity-60"></div>
       <div className="hero-content text-center text-neutral-content">
         <div className="max-w-md">
