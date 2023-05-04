@@ -11,7 +11,7 @@ const TopRecipe = () => {
         <div>
           <h1 className="text-5xl font-bold">Enjoy Recipe All over the World</h1>
           <p className="py-6">
-          There’s cooking, and then there’s cooking with passion, creativity, and love. At Little Rae’s, we firmly believe that the energy you put into a recipe is just as important as the ingredients you use. And we’re not alone. Below is a collection of quotes about cooking from the heart that will make you look at food in a whole new light.
+          With travel off limits, you may be experiencing some major wanderlust. And while you can't hop on a plane right now, you can make a delicious dinner inspired by different cuisines and cultures around the world. Here are 40 recipes to taste your way around the world without leaving the house.
           </p>
         </div>
       </div>
