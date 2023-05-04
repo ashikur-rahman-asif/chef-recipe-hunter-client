@@ -1,10 +1,56 @@
-import React from 'react';
+import React, { createContext, useEffect, useState } from 'react';
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { app } from '../Firebase/firebase.config';
 
-const AuthProvider = () => {
+const AuthContext = createContext(null)
+const auth=getAuth(app)
+const AuthProvider = ({ children }) => {
+    const [user, setUser] = useState(null);
+    const [loading, setLoading] = useState(true);
+    
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider()
+    const handleCreateUser = (email, password) => {
+        setLoading(true);
+        return createUserWithEmailAndPassword(auth, email, password);
+    };
+    const handleLogin = (email, password) => {
+        setLoading(true);
+        return signInWithEmailAndPassword(auth, email, password);
+    };
+    const handleGoogleSignIn = () => {
+        return signInWithPopup(auth, googleProvider )   
+    }
+    const handleGithubSignIn = () => {
+        return signInWithPopup(auth, githubProvider)
+    }
+    const handleSignOut = () => {
+        setLoading(true);
+        return signOut(auth);
+      };
+    
+      useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
+          setUser(loggedUser);
+          setLoading(false);
+        });
+        return () => {
+          unsubscribe();
+        };
+      }, []);
+    const authInfo = {
+        user,
+        handleCreateUser,
+        handleLogin,
+        handleGoogleSignIn,
+        handleGithubSignIn,
+        handleSignOut,
+        loading
+    }
     return (
-        <div>
-            
-        </div>
+        <AuthContext.Provider value={authInfo}>
+            {children}
+        </AuthContext.Provider>
     );
 };
 
