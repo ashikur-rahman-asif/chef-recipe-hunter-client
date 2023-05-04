@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUserr } = useContext(AuthContext);
 
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
@@ -13,10 +13,11 @@ const Register = () => {
     setSuccess("");
     const form = e.target;
     const name = form.name.value;
-    const photoUrl = form.photoUrl.value;
+    const photoUrl = form.photo_url.value;
     const email = form.email.value;
     const password = form.password.value;
     const confirm = form.confirm.value;
+    // console.log(photoUrl,name)
 
     if (password < 6) {
       setError("Password must be 6 characters long");
@@ -28,14 +29,14 @@ const Register = () => {
       setError("Your password not matched");
       return;
     }
-    createUser(email, password)
+    createUserr(email, password)
       .then((result) => {
         const createdUser = result.user;
         form.reset();
         setSuccess("User has registered successfully");
         updateProfile(createdUser, {
           displayName: name,
-          photoUrl: photoUrl,
+          photoURL: photoUrl,
         });
       })
       .catch((error) => setError(error.message));
@@ -80,7 +81,7 @@ const Register = () => {
                 <input
                   type="text"
                   placeholder="photo url"
-                  name="photoUrl"
+                  name="photo_url"
                   required
                   className="input input-bordered"
                 />

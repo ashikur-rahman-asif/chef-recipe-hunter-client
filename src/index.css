@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html{
+  overflow-x: hidden;
+}
  .nav-container {
   @apply px-4 md:px-56 py-2 md:py-4 md:mx-auto
   }

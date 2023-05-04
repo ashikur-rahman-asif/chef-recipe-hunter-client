@@ -44,14 +44,14 @@ const NavBar = () => {
         </ul>
 
         <div className="md:flex">
-          <div className="ml-auto">
+          <div className="flex">
           <>
             {user ? (
               <>
-                {user.photoUrl && (
+                {user.photoURL && (
                   <img title={user.displayName}
                     className="h-12 rounded-full border-2 border-primary"
-                    src={user?.photoUrl}
+                    src={user?.photoURL}
                     alt=""
                   />
                 )}

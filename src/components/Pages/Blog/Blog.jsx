@@ -1,31 +1,75 @@
-import React from 'react';
+import React from "react";
 
 const Blog = () => {
-    return (
-        <div className=''> 
-<h1 className='flex text-center text-3xl mt-3 font-bold justify-center'>Some important question</h1>
-      <div className='px-3 md:px-20 lg:px-52'>
+  return (
+    <div className="mb-7">
+      <h1 className="flex text-center text-3xl mt-3 font-bold justify-center">
+        Some important question
+      </h1>
+      <div className="px-3 md:px-20 lg:px-52">
         <div className="mt-10">
           <div className="grid grid-cols-1 gap-4 text-justify">
             <div className="border-solid border-2 p-4 bg-slate-100">
-              <h3 className="text-2xl">1.What is ContextApi ? </h3>
-              <p className="mt-2">The Context API is a React structure that enables you to exchange unique details and assists in solving prop-drilling from all levels of your application.</p>
+              <h3 className="text-2xl">
+                1.Differences between uncontrolled and controlled components?{" "}
+              </h3>
+              <p className="mt-2">
+                i. Uncontrolled components are those that operate on their own
+                without any intervention or control, while controlled components
+                are those that are actively managed by an external entity.{" "}
+                <br />
+                ii. Uncontrolled components are designed to perform their
+                functions independently, while controlled components are
+                designed to work in tandem with other components to achieve a
+                particular objective. <br />
+                iii. Uncontrolled components typically have unpredictable
+                performance, while controlled components have a predetermined
+                level of performance that can be monitored and adjusted as need
+              </p>
             </div>
           </div>
         </div>
         <div className="mt-10">
           <div className="grid grid-cols-1 gap-4 text-justify">
             <div className="border-solid border-2 p-4 bg-slate-100">
-              <h3 className="text-2xl">2.What is custom hook in react.js? </h3>
-              <p className="mt-2">Custom React JS hooks are reusable functions that a React JS software developer can use to add special and unique functionality to the React applications. </p>
+              <h3 className="text-2xl">
+                2.How to validate React props using PropTypes?{" "}
+              </h3>
+              <p className="mt-2">
+                React provides a library called PropTypes that allows you to
+                specify the types and shapes of props that a component should
+                receive. This is helpful for catching bugs early in development,
+                ensuring that components receive the correct props, and
+                documenting how components should be used.
+              </p>
             </div>
           </div>
         </div>
         <div className="mt-10">
           <div className="grid grid-cols-1 gap-4 text-justify">
             <div className="border-solid border-2 p-4 bg-slate-100">
-              <h3 className="text-2xl">3.What is useRef in react.js?</h3>
-              <p className="mt-2">The useRef Hook allows you to persist values between renders. It can be used to store a mutable value that does not cause a re-render when updated.  </p>
+              <h3 className="text-2xl">
+                3.Difference between nodejs and express js.
+              </h3>
+              <p className="mt-2">
+                {" "}
+                <li>
+                  Node.js is a server-side JavaScript runtime that allows you to
+                  run JavaScript code on the server. It provides an
+                  event-driven, non-blocking I/O model that makes it ideal for
+                  building scalable, high-performance web applications. Node.js
+                  comes with a built-in module system and APIs for working with
+                  file systems, networking, and more.
+                </li>
+                <li>
+                  Express.js, on the other hand, is a web framework built on top
+                  of Node.js that simplifies the process of building web
+                  applications. Express.js provides a set of tools and APIs for
+                  building web applications, such as middleware for handling
+                  requests and responses, routing for mapping URLs to controller
+                  functions, and templating engines for generating HTML.
+                </li>
+              </p>
             </div>
           </div>
         </div>
@@ -33,13 +77,37 @@ const Blog = () => {
           <div className="grid grid-cols-1 gap-4 text-justify">
             <div className="border-solid border-2 p-4 bg-slate-100">
               <h3 className="text-2xl">4.What is useMemo in react.js?</h3>
-              <p className="mt-2">React has a built-in hook called useMemo that allows you to memoize expensive functions so that you can avoid calling them on every render.</p>
+              <p className="mt-2">
+                {" "}
+                <span className="font-semibold">Custom Hook: </span>A custom
+                hook in React is a JavaScript function that allows you to reuse
+                logic across different components. Custom hooks are created by
+                extracting some common functionality from a component and
+                putting it in a separate function that can be used by other
+                components. <br />
+                Custom hooks can be useful in many situations. Here are some
+                reasons why you might create a custom hook:
+                <li>
+                  {" "}
+                  If you find yourself repeating the same code across multiple
+                  components, you can create a custom hook to avoid duplicating
+                  code.
+                </li>
+                <li>
+                  Custom hooks can help to abstract away complex logic and make
+                  your components more readable and maintainable.
+                </li>
+                <li>
+                  Custom hooks can encapsulate stateful logic and prevent
+                  components from becoming too complex.
+                </li>
+              </p>
             </div>
           </div>
         </div>
-     </div>
+      </div>
     </div>
-    );
+  );
 };
 
 export default Blog;
