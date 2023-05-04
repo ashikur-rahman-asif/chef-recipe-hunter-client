@@ -23,19 +23,17 @@ const AuthProvider = ({ children }) => {
     const githubSignIn = () => {
         return signInWithPopup(auth, githubProvider)
     }
-    const signOut = () => {
-        setLoading(true);
-        return signOut(auth);
-      };
+    const logOut = () => {
+        setLoading(true)
+        return signOut(auth)
+    }
     
       useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (loggedUser) => {
           setUser(loggedUser);
           setLoading(false);
         });
-        return () => {
-          unsubscribe();
-        };
+        return unsubscribe();
       }, []);
     const authInfo = {
         loading,
@@ -44,8 +42,7 @@ const AuthProvider = ({ children }) => {
         login,
        googleSignIn,
         githubSignIn,
-        signOut,
-        
+        logOut
     }
     return (
         <AuthContext.Provider value={authInfo}>

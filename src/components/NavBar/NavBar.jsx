@@ -5,7 +5,13 @@ import { AuthContext } from "../../context/AuthProvider";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const {user,signOut}=useContext(AuthContext)
+  const { user, logOut  } = useContext(AuthContext)
+
+  const handleLogOut = () => {
+    logOut()
+      .then()
+    .catch(error=>setError(error.message))
+  }
   return (
     <div className="nav-container">
       <div className="relative flex justify-between items-center">
@@ -49,7 +55,7 @@ const NavBar = () => {
                     alt=""
                   />
                 )}
-                <button onClick={handleLogout} className="ml-5 btn btn-primary bg-gradient-to-r from-blue-600 to-indigo-500 text-white">
+                <button onClick={handleLogOut} className="ml-5 btn btn-primary bg-gradient-to-r from-blue-600 to-indigo-500 text-white">
                   Logout
                 </button>
               </>

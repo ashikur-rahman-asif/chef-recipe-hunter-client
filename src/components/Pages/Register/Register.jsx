@@ -37,9 +37,6 @@ const Register = () => {
           displayName: name,
           photoUrl: photoUrl,
         });
-        navigate(from, { replace: true });
-
-        
       })
       .catch((error) => setError(error.message));
   };
@@ -123,7 +120,7 @@ const Register = () => {
               </Link>
             </div>
           </div>
-          <div className="text-center">
+          <div className="text-center mb-2">
             <p className="text-red-600">{error}</p>
             <p className="text-green-600">{success}</p>
           </div>
