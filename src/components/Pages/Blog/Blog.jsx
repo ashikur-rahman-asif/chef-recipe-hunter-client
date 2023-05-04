@@ -1,12 +1,16 @@
 import React from "react";
-
+// import ReactToPdf from "react-to-pdf";
 const Blog = () => {
   return (
+    
     <div className="mb-7">
+      {/* <Pdf targetRef={ref} filename="code-example.pdf">
+        {({ toPdf }) => <button onClick={toPdf}>Generador de Pdf</button>}
+      </Pdf> */}
       <h1 className="flex text-center text-3xl mt-3 font-bold justify-center">
         Some important question
       </h1>
-      <div className="px-3 md:px-20 lg:px-52">
+      <div  className="px-3 md:px-20 lg:px-52">
         <div className="mt-10">
           <div className="grid grid-cols-1 gap-4 text-justify">
             <div className="border-solid border-2 p-4 bg-slate-100">
