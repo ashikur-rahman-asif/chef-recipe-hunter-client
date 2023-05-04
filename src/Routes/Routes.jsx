@@ -5,12 +5,15 @@ import Login from "../components/Pages/Login/Login";
 import Register from "../components/Pages/Register/Register";
 import Blog from "../components/Pages/Blog/Blog";
 import Recipes from "../components/Pages/Recipes/Recipes";
+import PrivateRoute from "./PrivateRoute";
+import Error from "../components/Pages/Error/Error";
 
 
 const router = createBrowserRouter([
     {
       path: "/",
-        element: <Layouts />,
+    element: <Layouts />,
+        errorElement:<Error/>,
         children: [
             {
                 path: '/',
@@ -30,9 +33,10 @@ const router = createBrowserRouter([
           },
           {
             path: "/chefRecipes/:id",
-            element: <Recipes/>,
+            element: <PrivateRoute><Recipes/></PrivateRoute>,
             loader: ({params})=>fetch(`http://localhost:5000/recipes/${params.id}`)
-          }
+          },
+          
       ]
     },
 ]);

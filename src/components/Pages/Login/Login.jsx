@@ -111,7 +111,7 @@ const Login = () => {
               </Link>
             </div>
           </div>
-          <div className="text-center mt-1">
+          <div className="text-center">
             <p className="text-red-600">{error}</p>
             <p className="text-green-600">{success}</p>
           </div>
