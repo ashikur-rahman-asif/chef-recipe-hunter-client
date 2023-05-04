@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Bars3BottomRightIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import { AuthContext } from "../../context/AuthProvider";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const {user,signOut}=useContext(AuthContext)
   return (
     <div className="nav-container">
       <div className="relative flex justify-between items-center">
@@ -36,12 +38,27 @@ const NavBar = () => {
         </ul>
 
         <div className="md:flex">
-          <div className="">
-            <Link to="/login">
-              <button className="btn btn-primary bg-gradient-to-r from-blue-600 to-indigo-500 text-white">
-                Login
-              </button>
-            </Link>
+          <div className="ml-auto">
+          <>
+            {user ? (
+              <>
+                {user.photoUrl && (
+                  <img title={user.displayName}
+                    className="h-12 rounded-full border-2 border-primary"
+                    src={user?.photoUrl}
+                    alt=""
+                  />
+                )}
+                <button onClick={handleLogout} className="ml-5 btn btn-primary bg-gradient-to-r from-blue-600 to-indigo-500 text-white">
+                  Logout
+                </button>
+              </>
+            ) : (
+              <Link to="/login">
+                <button className="btn btn-primary bg-gradient-to-r from-blue-600 to-indigo-500 text-white">Login</button>
+              </Link>
+            )}
+          </>
           </div>
         </div>
 
