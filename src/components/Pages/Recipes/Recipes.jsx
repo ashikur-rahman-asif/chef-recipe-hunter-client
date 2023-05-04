@@ -1,10 +1,11 @@
 import React from "react";
 import { AiFillLike } from "react-icons/Ai";
 import { useLoaderData } from "react-router-dom";
+import RecipesDetails from "./RecipesDetails";
 
 const Recipes = () => {
   const chef = useLoaderData();
-  const chefRecipes = chef.recipes;
+  const recipes = chef.recipes;
   console.log(chef);
 
   return (
@@ -18,13 +19,27 @@ const Recipes = () => {
             />
             <h1 className="text-4xl font-bold mt-3">{chef?.chefName}</h1>
             <p className="mt-1 mb-1 font-semibold">Biography: {chef?.bio}</p>
-            <p className="mt-1 mb-1 font-semibold">Experience: {chef?.yearsOfExperience} years</p>
-                      <p className="mt-1 mb-1 font-semibold">Total Recipe: {chef?.recipes.length} </p>
-                      <p className="mt-1 mb-1 font-semibold">Likes: {chef?.likes}</p>
-            <button className="btn btn-primary mt-1 mb-1">Get Started</button>
+            <p className="mt-1 mb-1 font-semibold">
+              Experience: {chef?.yearsOfExperience} years
+            </p>
+            <p className="mt-1 mb-1 font-semibold">
+              Total Recipe: {chef?.recipes.length}
+            </p>
+            <p className="mt-1 mb-1 font-semibold">Likes: {chef?.likes}</p>
           </div>
         </div>
-      </div>
+          </div>
+          <div className="">
+              <h2 className='text-center font-bold text-5xl mt-4'>My {chef?.recipes.length} Recipes</h2>
+              <div className="md:grid">
+                  {
+                      recipes.map(recipe => <RecipesDetails
+                          key={recipe.id}
+                          recipe={recipe}
+                      ></RecipesDetails>)
+                  }
+              </div>
+          </div>
     </div>
   );
 };

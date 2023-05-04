@@ -3,7 +3,7 @@
 @tailwind utilities;
 
  .nav-container {
-  @apply px-4 md:px-56 py-2 md:py-4 
+  @apply px-4 md:px-56 py-2 md:py-4 md:mx-auto
   }
   /* .main-container{
     @apply px-4 md:px-56 py-2 md:py-4 
