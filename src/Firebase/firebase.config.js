@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDR0pDOsuwvlyCZYHBLfK5k2HrqJDwpqyw",
-  authDomain: "becipe-client-auth.firebaseapp.com",
-  projectId: "becipe-client-auth",
-  storageBucket: "becipe-client-auth.appspot.com",
-  messagingSenderId: "61700208741",
-  appId: "1:61700208741:web:ad4c15d9cdd4f82cafee8c"
+  apiKey: import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase
