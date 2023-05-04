@@ -1,16 +1,25 @@
-import React from 'react';
-import './Header.css'
+import React from "react";
+import "./Header.css";
 const Header = () => {
-    return (
-        <div className='header-main'>
-            <div className="h-full w-full max-w-7xl mx-auto px-5 flex justify-center text-white items-center text-center">
-                <div className=''>
-                <h3 className='font-bold text-5xl'>Simply Recipes</h3>
-                <h4 className='font-semibold mt-4'>No Fluff, Just Recipes</h4>
-                </div>
-            </div>
+  return (
+    <div
+      className="hero min-h-[70vh]"
+      style={{
+        backgroundImage: `url("/src/assets/main.jpg")`,
+      }}
+    >
+      <div className="hero-overlay bg-opacity-60"></div>
+      <div className="hero-content text-center text-neutral-content">
+        <div className="max-w-md">
+          <h1 className="mb-5 text-5xl font-bold">Simply Recipes</h1>
+          <p className="mb-5">
+          No Fluff, Just Recipes
+          </p>
+          
         </div>
-    );
+      </div>
+    </div>
+  );
 };
 
 export default Header;

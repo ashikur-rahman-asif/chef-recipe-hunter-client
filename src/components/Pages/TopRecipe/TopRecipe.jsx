@@ -2,7 +2,7 @@ import React from "react";
 
 const TopRecipe = () => {
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-[70vh] bg-base-200">
       <div className="hero-content flex-col lg:flex-row">
         <img
           src="https://img.freepik.com/free-vector/food-ingredients-recipe-ravioli-hand-drawn-vector-illustration_1284-42012.jpg?w=360"
