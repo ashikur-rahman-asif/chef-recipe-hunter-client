@@ -1,6 +1,10 @@
-import React, { useState } from "react";
+import { updateProfile } from "firebase/auth";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../context/AuthProvider";
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
   const handleRegister = (e) => {
@@ -13,6 +17,31 @@ const Register = () => {
     const email = form.email.value;
     const password = form.password.value;
     const confirm = form.confirm.value;
+
+    if (password < 6) {
+      setError("Password must be 6 characters long");
+      return;
+    } else if (!/(?=.*[0-9])/.test(password)) {
+      setError("please at least one number in password");
+      return;
+    } else if (password !== confirm) {
+      setError("Your password not matched");
+      return;
+    }
+    createUser(email, password)
+      .then((result) => {
+        const createdUser = result.user;
+        form.reset();
+        setSuccess("User has registered successfully");
+        updateProfile(createdUser, {
+          displayName: name,
+          photoUrl: photoUrl,
+        });
+        navigate(from, { replace: true });
+
+        
+      })
+      .catch((error) => setError(error.message));
   };
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -93,6 +122,10 @@ const Register = () => {
                 Login
               </Link>
             </div>
+          </div>
+          <div className="text-center mt-1">
+            <p className="text-red-600">{error}</p>
+            <p className="text-green-600">{success}</p>
           </div>
         </div>
       </div>

@@ -1,13 +1,50 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import { BsGithub } from "react-icons/bs";
+import { AuthContext } from "../../../context/AuthProvider";
 const Login = () => {
+  const { user, login, googleSignIn, githubSignIn } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
+    login(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        form.reset();
+        navigate(from, { replace: true });
+        setSuccess("User Login successfully");
+      })
+      .catch((error) => setError(error.message));
+  };
+  const handleGoogleLogin = () => {
+    googleSignIn()
+      .then((result) => {
+        const user = result.user;
+        navigate(from, { replace: true });
+        setSuccess("User Login successfully");
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
+  };
+  const handleGithubLogin = () => {
+    githubSignIn()
+      .then((result) => {
+        const user = result.user;
+        navigate(from, { replace: true });
+        setSuccess("User Login successfully");
+      })
+      .catch((error) => {
+        setError(error.message);
+      });
   };
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -21,13 +58,19 @@ const Login = () => {
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <div className="card-body">
             <div>
-              <button className="flex items-center mx-auto border p-3 btn">
+              <button
+                onClick={handleGoogleLogin}
+                className="flex items-center mx-auto border p-3 btn"
+              >
                 <FcGoogle />
                 Log in with google
               </button>
             </div>
             <div>
-              <button className="flex items-center mx-auto border p-3 btn">
+              <button
+                onClick={handleGithubLogin}
+                className="flex items-center mx-auto border p-3 btn"
+              >
                 <BsGithub />
                 Log in with Github
               </button>
@@ -67,6 +110,10 @@ const Login = () => {
                 Please Register
               </Link>
             </div>
+          </div>
+          <div className="text-center mt-1">
+            <p className="text-red-600">{error}</p>
+            <p className="text-green-600">{success}</p>
           </div>
         </div>
       </div>
