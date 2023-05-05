@@ -13,7 +13,7 @@ const Chefs = () => {
         <div className='md:mx-10 w-full' >
             <h2 className='text-center font-bold text-5xl mt-4'>Our Chef's</h2>
             <div className='mx-auto px-4'>
-            <div className='md:grid grid-cols-3 gap-10 md:my-20'>
+            <div className='our-chefs md:grid grid-cols-3 gap-10 md:my-20'>
             {
                 chefs.map(chef => <ChefCard
                     key={chef.id}

@@ -4,9 +4,9 @@ const SpecialChef = () => {
   return (
     <div className="mt-5">
       <h3 className="text-4xl font-bold text-center mb-5">
-        Our Special Recipe Items
+        Our Special Chefs Recipe Items
       </h3>
-      <div className="grid md:grid-cols-3 md:ml-[70px]">
+      <div className="grid special-chef md:grid-cols-3 md:ml-[70px]">
         <div className="card w-96 bg-base-100 shadow-xl">
           <figure>
             <img

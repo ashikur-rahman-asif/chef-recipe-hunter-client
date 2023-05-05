@@ -5,6 +5,32 @@
 html{
   overflow-x: hidden;
 }
+@media only screen and (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+  }
+  .our-chefs{
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-content: center;
+  }
+  .enjoy-recipe{
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+  }
+  .special-chef {
+    display: grid;
+      grid-template-columns: 1fr;
+      justify-content: center;
+  }
+  .special-chef figure{
+    width: 100%;
+    margin: auto;
+    align-items: center;
+  }
+}
  .nav-container {
   @apply px-4 md:px-56 py-2 md:py-4 md:mx-auto
   }
