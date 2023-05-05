@@ -18,8 +18,9 @@ const RecipesDetails = ({ recipe }) => {
           <div>
             <h1 className="text-5xl font-bold">{name}</h1>
             <p className="py-6">
-              {ingredients.map((i) => (
-                <li>{i}</li>
+              {ingredients.map((i,key) => (
+                // console.log(i,key+1)
+                <li key={key}>{i}</li>
               ))}
             </p>
             <p className="py-6">Method: {method} </p>

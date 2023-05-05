@@ -9,7 +9,7 @@ const Login = () => {
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-  console.log(location)
+  // console.log(location)
   const from= location.state?.from?.pathname || '/'
   const handleSubmit = (e) => {
     e.preventDefault();

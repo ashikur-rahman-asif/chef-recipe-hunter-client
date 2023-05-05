@@ -27,7 +27,7 @@ const Register = () => {
       setError("please at least one number in password");
       return;
     } else if (password !== confirm) {
-      setError("Your password not matched");
+      setError("Your password is'not matched");
       return;
     }
 
@@ -51,7 +51,7 @@ const Register = () => {
           displayName: name,
           photoURL: photoUrl,
         });
-        navigate('/login');
+        // navigate('/login');
       })
       .catch((error) => {
         setError(error.message);
