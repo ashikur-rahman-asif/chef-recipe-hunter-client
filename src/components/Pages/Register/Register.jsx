@@ -3,7 +3,7 @@ import React, { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, logOut } = useContext(AuthContext);
 
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
@@ -46,15 +46,17 @@ const Register = () => {
         const createdUser = result.user;
         form.reset();
         setSuccess("User has registered successfully");
+        logOut()
         updateProfile(createdUser, {
           displayName: name,
           photoURL: photoUrl,
         });
+        navigate('/login');
       })
       .catch((error) => {
         setError(error.message);
       });
-    navigate("/");
+   
   };
   return (
     <div className="hero min-h-screen bg-base-200">
