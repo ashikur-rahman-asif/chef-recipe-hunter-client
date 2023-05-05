@@ -9,7 +9,8 @@ const Login = () => {
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
+  console.log(location)
+  const from= location.state?.from?.pathname || '/'
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -18,12 +19,14 @@ const Login = () => {
     login(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser)
+        // console.log(loggedUser)
         form.reset();
         navigate(from, { replace: true });
         setSuccess("User Login successfully");
       })
-      .catch((error) => setError(error.message));
+      .catch((error) => {
+        setError(error.message)
+      });
   };
   const handleGoogleLogin = () => {
     googleSignIn()

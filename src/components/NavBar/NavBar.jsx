@@ -52,7 +52,7 @@ const NavBar = () => {
                   <img title={user.displayName}
                     className="h-[45px] rounded-full"
                     src={user?.photoURL}
-                    alt=""
+                    alt={user.displayName}
                   />
                 )}
                 <button onClick={handleLogOut} className="ml-5 btn btn-primary bg-gradient-to-r from-blue-600 to-indigo-500 text-white">

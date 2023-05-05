@@ -1,12 +1,13 @@
 import { updateProfile } from "firebase/auth";
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
 const Register = () => {
-  const { createUserr } = useContext(AuthContext);
+  const { createUser } = useContext(AuthContext);
 
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const navigate = useNavigate();
   const handleRegister = (e) => {
     e.preventDefault();
     setError("");
@@ -29,7 +30,18 @@ const Register = () => {
       setError("Your password not matched");
       return;
     }
-    createUserr(email, password)
+
+    if (
+      !/^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/.test(
+        photoUrl
+      )
+    ) {
+      setError("Url is not correct format");
+      return;
+    } else {
+      setError("");
+    }
+    createUser(email, password)
       .then((result) => {
         const createdUser = result.user;
         form.reset();
@@ -39,7 +51,10 @@ const Register = () => {
           photoURL: photoUrl,
         });
       })
-      .catch((error) => setError(error.message));
+      .catch((error) => {
+        setError(error.message);
+      });
+    navigate("/");
   };
   return (
     <div className="hero min-h-screen bg-base-200">
@@ -52,7 +67,7 @@ const Register = () => {
             <form onSubmit={handleRegister}>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Full Name</span>
+                  <span className="label-text">Name</span>
                 </label>
                 <input
                   type="text"

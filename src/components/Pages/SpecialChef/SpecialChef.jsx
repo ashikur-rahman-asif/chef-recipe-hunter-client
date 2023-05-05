@@ -3,10 +3,10 @@ import React from "react";
 const SpecialChef = () => {
   return (
     <div className="mt-5">
-      <h3 className="text-4xl font-bold text-center">
+      <h3 className="text-4xl font-bold text-center mb-5">
         Our Special Recipe Items
       </h3>
-      <div className="grid md:grid-cols-3">
+      <div className="grid md:grid-cols-3 md:ml-[70px]">
         <div className="card w-96 bg-base-100 shadow-xl">
           <figure>
             <img
