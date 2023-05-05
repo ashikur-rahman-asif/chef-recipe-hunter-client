@@ -50,7 +50,7 @@ const NavBar = () => {
               <>
                 {user.photoURL && (
                   <img title={user.displayName}
-                    className="h-[50px] rounded-full"
+                    className="max-h-12 max-w-full rounded-full"
                     src={user?.photoURL}
                     alt={user.displayName}
                   />
