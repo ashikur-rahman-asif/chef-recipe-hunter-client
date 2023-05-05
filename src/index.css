@@ -24,11 +24,13 @@ html{
     display: grid;
       grid-template-columns: 1fr;
       justify-content: center;
+      gap: 30px;
   }
   .special-chef figure{
     width: 100%;
     margin: auto;
     align-items: center;
+    margin-left: 10px;
   }
 }
  .nav-container {
