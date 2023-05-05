@@ -9,4 +9,4 @@
 <li>Mark as favourite recipe</li>
 <li>React toast package</li>
 
-# Also added a generate pdf button
+# Also added a generate pdf button in the blog page
