@@ -3,9 +3,14 @@ import Pdf from "react-to-pdf";
 import ReactToPdf from "react-to-pdf";
 const Blog = () => {
   const ref = React.createRef();
+  const options = {
+    orientation: 'landscape',
+    unit: 'in',
+    format: [14,12]
+};
   return (
     <div className="mb-7">
-      <ReactToPdf targetRef={ref}  filename="blogs.pdf">
+      <ReactToPdf targetRef={ref} options={options} filename="blogs.pdf">
         {({ toPdf }) => (
           <div className="container py-10 px-10 mx-0 min-w-full grid place-items-center">
               <button className="btn btn-primary bg-gradient-to-r from-blue-600 to-indigo-500 text-white items-center" onClick={toPdf}>Generate to pdf</button>
