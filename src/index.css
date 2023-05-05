@@ -24,6 +24,7 @@ html{
     display: grid;
       grid-template-columns: 1fr;
       justify-content: center;
+      margin-left: 10px;
       gap: 30px;
   }
   .special-chef figure{
